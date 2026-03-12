@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laya Hotel Links Hub</title>
+  <meta name="description" content="ศูนย์รวมลิงก์ระบบงานของโรงแรม Laya" />
+  <style>
+    :root {
+      --bg1: #0f172a;
+      --bg2: #1e293b;
+      --card: rgba(255,255,255,0.1);
+      --border: rgba(255,255,255,0.15);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --accent: #f8d47a;
+      --accent2: #38bdf8;
+      --shadow: 0 18px 45px rgba(0,0,0,0.28);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.20), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(248,212,122,0.18), transparent 28%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+      min-height: 100vh;
+    }
+
+    .wrapper {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 50px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 24px 12px 14px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(248, 212, 122, 0.14);
+      border: 1px solid rgba(248, 212, 122, 0.28);
+      color: var(--accent);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.1;
+      font-weight: 800;
+    }
+
+    .subtitle {
+      max-width: 720px;
+      margin: 16px auto 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), transparent 40%);
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(248,212,122,0.38);
+      box-shadow: 0 22px 48px rgba(0,0,0,0.35);
+    }
+
+    .icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, rgba(248,212,122,0.22), rgba(56,189,248,0.18));
+      border: 1px solid rgba(255,255,255,0.16);
+      margin-bottom: 18px;
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 1.35rem;
+    }
+
+    .card p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      line-height: 1.6;
+      min-height: 52px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #fbbf24);
+      color: #111827;
+      box-shadow: 0 10px 24px rgba(248,212,122,0.25);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .footer {
+      text-align: center;
+      color: #cbd5e1;
+      margin-top: 30px;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 780px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .wrapper {
+        width: min(100% - 20px, 1100px);
+        padding-top: 24px;
+      }
+
+      .card p {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <section class="hero">
+      <div class="badge">Laya Hotel • Quick Access</div>
+      <h1>Laya Hotel Links Hub</h1>
+      <p class="subtitle">
+        ศูนย์รวมลิงก์ระบบงานของโรงแรมไว้ในหน้าเดียว เพื่อให้ทีมงานเข้าใช้งานได้สะดวก รวดเร็ว และเป็นระเบียบ
+      </p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <div class="icon">📋</div>
+        <h2>Laya Staff Task</h2>
+        <p>ระบบสำหรับติดตามงานและรายการที่เกี่ยวข้องกับทีมงานของโรงแรม</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://gamepoola.github.io/laya-staff-task/login.html" target="_blank" rel="noopener noreferrer">เปิดใช้งาน</a>
+          <a class="btn btn-secondary" href="https://gamepoola.github.io/laya-staff-task/login.html" target="_blank" rel="noopener noreferrer">คัดลอกลิงก์</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🍽️</div>
+        <h2>Laya Order</h2>
+        <p>ระบบติดตามออเดอร์อาหารเพื่อช่วยให้การทำงานหน้าร้านและครัวลื่นไหลมากขึ้น</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://wuttichaikoji-oss.github.io/LAYA-Order/" target="_blank" rel="noopener noreferrer">เปิดใช้งาน</a>
+          <a class="btn btn-secondary" href="https://wuttichaikoji-oss.github.io/LAYA-Order/" target="_blank" rel="noopener noreferrer">คัดลอกลิงก์</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">📊</div>
+        <h2>Laya Operations Hub</h2>
+        <p>แดชบอร์ดรวมข้อมูลการปฏิบัติงานสำหรับใช้งานติดตามภาพรวมของฝ่ายต่าง ๆ</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://wuttichaikoji-oss.github.io/LAYA-FB/#dashboard" target="_blank" rel="noopener noreferrer">เปิดใช้งาน</a>
+          <a class="btn btn-secondary" href="https://wuttichaikoji-oss.github.io/LAYA-FB/#dashboard" target="_blank" rel="noopener noreferrer">คัดลอกลิงก์</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🥐</div>
+        <h2>Laya Breakfast Check-in</h2>
+        <p>ระบบเช็กอินอาหารเช้าสำหรับตรวจสอบแขกและติดตามสถานะการเข้าใช้บริการ</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://gamepoola.github.io/breakfast/" target="_blank" rel="noopener noreferrer">เปิดใช้งาน</a>
+          <a class="btn btn-secondary" href="https://gamepoola.github.io/breakfast/" target="_blank" rel="noopener noreferrer">คัดลอกลิงก์</a>
+        </div>
+      </article>
+    </section>
+
+    <div class="footer">
+      หน้ารวมลิงก์สำหรับใช้งานภายในโรงแรม Laya
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.btn-secondary').forEach(button => {
+      button.addEventListener('click', async (event) => {
+        event.preventDefault();
+        const url = button.getAttribute('href');
+        try {
+          await navigator.clipboard.writeText(url);
+          const original = button.textContent;
+          button.textContent = 'คัดลอกแล้ว';
+          setTimeout(() => button.textContent = original, 1600);
+        } catch (err) {
+          window.open(url, '_blank', 'noopener,noreferrer');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
